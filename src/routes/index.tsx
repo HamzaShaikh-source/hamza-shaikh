@@ -111,10 +111,19 @@ function Index() {
             <a href="#stack" className="hover:opacity-60 transition-opacity">Stack</a>
             <a href="#contact" className="hover:opacity-60 transition-opacity">Contact</a>
           </nav>
-          <a href={EMAIL} className="group font-mono text-xs uppercase tracking-widest border border-ink px-3 py-2 hover:bg-ink hover:text-paper transition-colors flex items-center gap-2">
+          <a href={EMAIL} target="_blank" rel="noreferrer" className="group font-mono text-xs uppercase tracking-widest border border-ink px-3 py-2 hover:bg-ink hover:text-paper transition-colors flex items-center gap-2">
             Hire me
             <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            aria-pressed={dark}
+            className="ml-2 relative h-9 w-9 border border-ink flex items-center justify-center overflow-hidden hover:bg-ink hover:text-paper transition-colors"
+          >
+            <Sun className={`w-4 h-4 absolute transition-all duration-500 ${dark ? "opacity-0 -rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"}`} />
+            <Moon className={`w-4 h-4 absolute transition-all duration-500 ${dark ? "opacity-100 rotate-0 scale-100" : "opacity-0 rotate-90 scale-50"}`} />
+          </button>
         </div>
       </header>
 
