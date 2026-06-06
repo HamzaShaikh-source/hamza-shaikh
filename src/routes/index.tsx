@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail, Moon, Sparkles, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
 
 const GITHUB = "https://github.com/Hamzashaikh-source";
 const LINKEDIN = "https://www.linkedin.com/in/hamza-shaikh-00a9a7412";
-const EMAIL = "mailto:hamzashaikh0259@gmail.com";
+const EMAIL = "https://mail.google.com/mail/?view=cm&fs=1&to=hamzashaikh0259@gmail.com";
 
 const projects = [
   {
