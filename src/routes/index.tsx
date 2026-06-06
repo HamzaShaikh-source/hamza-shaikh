@@ -287,7 +287,7 @@ function Index() {
             <span className="italic font-light">something good.</span>
           </h2>
           <div className="mt-12 grid md:grid-cols-2 gap-6">
-            <a href={EMAIL} className="group border border-ink p-8 flex items-center justify-between hover:bg-ink hover:text-paper transition-colors">
+            <a href={EMAIL} target="_blank" rel="noreferrer" className="group border border-ink p-8 flex items-center justify-between hover:bg-ink hover:text-paper transition-colors">
               <div>
                 <div className="font-mono text-xs uppercase tracking-widest opacity-60 mb-2">Email</div>
                 <div className="text-2xl font-bold">Say hello</div>
