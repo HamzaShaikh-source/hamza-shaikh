@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
 
 const GITHUB = "https://github.com/Hamzashaikh-source";
 const LINKEDIN = "https://www.linkedin.com/in/hamza-shaikh-00a9a7412";
-const EMAIL = "mailto:hamza@example.com";
+const EMAIL = "mailto:hamzashaikh0259@gmail.com";
 
 const projects = [
   {
