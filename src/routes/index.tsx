@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail, Moon, Sparkles, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
 
 const GITHUB = "https://github.com/Hamzashaikh-source";
 const LINKEDIN = "https://www.linkedin.com/in/hamza-shaikh-00a9a7412";
-const EMAIL = "mailto:hamzashaikh0259@gmail.com";
+const EMAIL = "https://mail.google.com/mail/?view=cm&fs=1&to=hamzashaikh0259@gmail.com";
 
 const projects = [
   {
@@ -70,6 +70,16 @@ const stack = ["React", "TypeScript", "Next.js", "TailwindCSS", "Node", "Python"
 
 function Index() {
   const [time, setTime] = useState("");
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    const stored = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
+    const prefersDark = typeof window !== "undefined" && window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+    const initial = stored ? stored === "dark" : !!prefersDark;
+    setDark(initial);
+    document.documentElement.classList.toggle("dark", initial);
+  }, []);
+
   useEffect(() => {
     const tick = () => {
       const d = new Date();
@@ -79,6 +89,15 @@ function Index() {
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
   }, []);
+
+  const toggleTheme = () => {
+    setDark((prev) => {
+      const next = !prev;
+      document.documentElement.classList.toggle("dark", next);
+      try { localStorage.setItem("theme", next ? "dark" : "light"); } catch {}
+      return next;
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground grain">
@@ -92,10 +111,21 @@ function Index() {
             <a href="#stack" className="hover:opacity-60 transition-opacity">Stack</a>
             <a href="#contact" className="hover:opacity-60 transition-opacity">Contact</a>
           </nav>
-          <a href={EMAIL} className="group font-mono text-xs uppercase tracking-widest border border-ink px-3 py-2 hover:bg-ink hover:text-paper transition-colors flex items-center gap-2">
-            Hire me
-            <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          <div className="flex items-center gap-2">
+            <a href={EMAIL} target="_blank" rel="noreferrer" className="group font-mono text-xs uppercase tracking-widest border border-ink px-3 py-2 hover:bg-ink hover:text-paper transition-colors flex items-center gap-2">
+              Hire me
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              aria-pressed={dark}
+              className="relative h-9 w-9 border border-ink flex items-center justify-center overflow-hidden hover:bg-ink hover:text-paper transition-colors"
+            >
+              <Sun className={`w-4 h-4 absolute transition-all duration-500 ${dark ? "opacity-0 -rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"}`} />
+              <Moon className={`w-4 h-4 absolute transition-all duration-500 ${dark ? "opacity-100 rotate-0 scale-100" : "opacity-0 rotate-90 scale-50"}`} />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -257,7 +287,7 @@ function Index() {
             <span className="italic font-light">something good.</span>
           </h2>
           <div className="mt-12 grid md:grid-cols-2 gap-6">
-            <a href={EMAIL} className="group border border-ink p-8 flex items-center justify-between hover:bg-ink hover:text-paper transition-colors">
+            <a href={EMAIL} target="_blank" rel="noreferrer" className="group border border-ink p-8 flex items-center justify-between hover:bg-ink hover:text-paper transition-colors">
               <div>
                 <div className="font-mono text-xs uppercase tracking-widest opacity-60 mb-2">Email</div>
                 <div className="text-2xl font-bold">Say hello</div>
@@ -282,7 +312,7 @@ function Index() {
           <div className="flex gap-5">
             <a href={GITHUB} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:opacity-60"><Github className="w-4 h-4" /> GitHub</a>
             <a href={LINKEDIN} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:opacity-60"><Linkedin className="w-4 h-4" /> LinkedIn</a>
-            <a href={EMAIL} className="flex items-center gap-2 hover:opacity-60"><Mail className="w-4 h-4" /> Email</a>
+            <a href={EMAIL} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:opacity-60"><Mail className="w-4 h-4" /> Email</a>
           </div>
         </div>
       </footer>
