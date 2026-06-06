@@ -104,7 +104,7 @@ function Index() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted-foreground reveal">
             <span className="w-2 h-2 rounded-full bg-emerald-600 blink" />
-            Available for new projects · Karachi {time}
+            Available for new projects · India {time}
           </div>
 
           <h1 className="reveal mt-8 text-[clamp(3rem,11vw,11rem)] leading-[0.9] font-bold tracking-tighter">
@@ -151,7 +151,7 @@ function Index() {
               <span>★ Always learning</span>
               <span>★ Open to work</span>
               <span>★ React · TypeScript</span>
-              <span>★ Karachi → Worldwide</span>
+              <span>★ India → Worldwide</span>
             </div>
           ))}
         </div>
@@ -215,7 +215,7 @@ function Index() {
               {[
                 { k: "Focus", v: "Frontend" },
                 { k: "Mode", v: "Build & learn" },
-                { k: "Base", v: "Karachi, PK" },
+                { k: "Base", v: "India" },
               ].map((s) => (
                 <div key={s.k}>
                   <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-4">{s.k}</div>
