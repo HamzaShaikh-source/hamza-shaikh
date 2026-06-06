@@ -70,6 +70,16 @@ const stack = ["React", "TypeScript", "Next.js", "TailwindCSS", "Node", "Python"
 
 function Index() {
   const [time, setTime] = useState("");
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    const stored = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
+    const prefersDark = typeof window !== "undefined" && window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+    const initial = stored ? stored === "dark" : !!prefersDark;
+    setDark(initial);
+    document.documentElement.classList.toggle("dark", initial);
+  }, []);
+
   useEffect(() => {
     const tick = () => {
       const d = new Date();
@@ -79,6 +89,15 @@ function Index() {
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
   }, []);
+
+  const toggleTheme = () => {
+    setDark((prev) => {
+      const next = !prev;
+      document.documentElement.classList.toggle("dark", next);
+      try { localStorage.setItem("theme", next ? "dark" : "light"); } catch {}
+      return next;
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground grain">
