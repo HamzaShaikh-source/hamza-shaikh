@@ -312,7 +312,7 @@ function Index() {
           <div className="flex gap-5">
             <a href={GITHUB} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:opacity-60"><Github className="w-4 h-4" /> GitHub</a>
             <a href={LINKEDIN} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:opacity-60"><Linkedin className="w-4 h-4" /> LinkedIn</a>
-            <a href={EMAIL} className="flex items-center gap-2 hover:opacity-60"><Mail className="w-4 h-4" /> Email</a>
+            <a href={EMAIL} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:opacity-60"><Mail className="w-4 h-4" /> Email</a>
           </div>
         </div>
       </footer>
