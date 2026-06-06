@@ -84,6 +84,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Portfolio of Hamza Shaikh — developer, curious learner, and builder of things on the web." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Hamza Shaikh — Developer & Builder" },
+      { name: "twitter:description", content: "Portfolio of Hamza Shaikh — developer, curious learner, and builder of things on the web." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/269cf087-75e2-47d8-977e-d36f581b5f75/id-preview-4c646580--93e526df-354b-4b38-a383-e0d4fdc13606.lovable.app-1780729127560.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/269cf087-75e2-47d8-977e-d36f581b5f75/id-preview-4c646580--93e526df-354b-4b38-a383-e0d4fdc13606.lovable.app-1780729127560.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
